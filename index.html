@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  <title>Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <style type="text/css">
+  body,*{
+  		color:#212121 !important;
+
+
+  }
+  body{
+    background: linear-gradient(to right,#ab1a1a, #0e67faba);
+    height: 590px;
+
+  }
+
+   .forsan {
+    position: absolute;
+    top: 15px;
+    left: 10%;
+}
+
+.forsan img{
+	opacity: 0.1;
+}
+
+  	button{
+  		text-align: center;
+  		font-size: 15px !important;
+  		font-weight: bold;
+  		  outline: none;
+
+
+
+  	}
+
+
+  	.calc{
+  		background-color: #26A69A;
+
+  	}
+  	.form-group{
+  		background-color: #E0F2F1;
+  	}
+  	.numbers{
+  		background-color: #80CBC4;
+  		color:#212121;
+  		margin-bottom: 15px;
+  		margin-left: 15px;
+  		 padding: 17px;
+
+  	}
+  	.ops ,.eqaul,.per,.last-char{
+  		background-color: #B3E5FC;
+  	}
+
+  	.eqaul{
+  		margin-bottom: 15px;margin-left: 15px;padding: 17px;
+  	}
+
+  	.ops{
+  		margin-bottom: 11.5px;margin-left: 15px;padding: 5px;
+  	}
+
+  </style>
+  
+</head>
+<body class="cont" style="padding-top: 100px;">
+
+<div class="container" id="app">
+		<div class="forsan"><img src="logo-forsan-tech.png" width="150" height="150"></div>
+
+	<div class="row ">
+		<div class="col-xl-4 col-md-8 col-lg-8 col-xs-12 offset-xl-4 offset-md-2 offset-lg-2 alert  calc">
+			<div  class="form-group alert  col-12" role="alert">
+				<lable ><h3>{{operaters}}</h3></lable>
+			</div>
+			<div class="row">
+
+			<div class="col-8" >
+			
+				<button
+				type="button" 
+				 class="col-3 btn btn-warning"
+				 style="margin-bottom: 15px;margin-left: 12px; padding: 10px;" 
+				 @click="deleteAll()"
+				 >off</button>
+
+				<button
+				type="button" 
+				 class="col-3 btn last-char"
+				 style="margin-bottom: 15px;margin-left: 12px; padding: 10px;" 
+				 @click="deleteLastNum()"
+				 >X</button>
+				<button
+				type="button" 
+				 class="col-3 btn per"
+				 style="margin-bottom: 15px;margin-left: 12px; padding: 10px;" 
+				 @click="getOperation('%')"
+				 >%</button>
+				<button 
+				type="button" 
+				class="col-2 btn  numbers text-center"
+				 v-for="numb in numbers" 
+				 v-on:click="getCurrentNum(numb.num)" 
+				 style="" 
+				 >{{numb.num}}</button>
+
+
+				 <button 
+				 type="button" 
+				 class="col-2 btn eqaul"
+			     @click="getBVal()"
+				 style="" 
+			       >=</button>
+			</div>
+			<div class="col-4"
+			style="padding-left: 0px !important" 
+			>
+			<button 
+			type="button" 
+			class=" btn ops col-9" 
+			v-for="ops in operation" 
+			v-on:click="getOperation(ops.op)"
+				 style="" 
+			
+				
+
+			>{{ops.op}}</button>
+			
+			</div>
+		</div>
+
+
+		</div>
+	</div>
+</div>
+ <script type="text/javascript" charset="utf-8" src="../vue.min.js"></script>
+ <script type="text/javascript" charset="utf-8" src="./js/pluguns.js"></script>
+
+</body>
+</html>
